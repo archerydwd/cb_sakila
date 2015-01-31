@@ -1,0 +1,47 @@
+<h1>Create a new Staff</h1>
+	{% if errors %}
+		<ol>
+			{% for error in errors %}
+				<li><font color=red>{{ error }}</font>
+			{% endfor %}
+		</ol>
+	{% endif %}
+
+	<form method="post">
+		<p>
+			First Name:<br>
+			<input name="first_name" value="{{ staff.first_name|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Last Name:<br>
+			<input name="last_name" value="{{ staff.last_name|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Address id:<br>
+			<input name="address_id" value="{{ staff.address_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Email:<br>
+			<input name="email" value="{{ staff.email|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Store id:<br>
+			<input name="store_id" value="{{ staff.store_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Active:<br>
+			<input type="checkbox" name="active" value="{{ staff.active|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Username:<br>
+			<input name="username" value="{{ staff.username|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Password:<br>
+			<input name="password" value="{{ staff.password|default_if_none:'' }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Create Staff"/>
+		</p>
+	</form>
+	<a href="{% url action="index" %}">Back</a>

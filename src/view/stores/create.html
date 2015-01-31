@@ -1,0 +1,19 @@
+<h1>Create a new Store</h1>
+	{% if errors %}
+		<ol>
+			{% for error in errors %}
+				<li><font color=red>{{ error }}</font>
+			{% endfor %}
+		</ol>
+	{% endif %}
+
+	<form method="post">
+		<p>
+			Address id:<br>
+			<input name="address_id" value="{{ store.address_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Create Store"/>
+		</p>
+	</form>
+	<a href="{% url action="index" %}">Back</a>

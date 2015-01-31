@@ -1,0 +1,17 @@
+<h1>Editing country</h1>
+	<form method="post">
+		<p>
+			Country<br>
+			<input name="country" value="{{ country.country }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update Country"/>
+		</p>
+	</form>
+	<a href="/countries/show/{{ country.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

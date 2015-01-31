@@ -1,0 +1,23 @@
+<h1>Create a new Inventory</h1>
+	{% if errors %}
+		<ol>
+			{% for error in errors %}
+				<li><font color=red>{{ error }}</font>
+			{% endfor %}
+		</ol>
+	{% endif %}
+
+	<form method="post">
+		<p>
+			Film id:<br>
+			<input name="film_id" value="{{ inventory.film_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Store id:<br>
+			<input name="store_id" value="{{ inventory.store_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Create Inventory"/>
+		</p>
+	</form>
+	<a href="{% url action="index" %}">Back</a>

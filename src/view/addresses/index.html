@@ -1,0 +1,37 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing addresses</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Address</th>
+						<th>District</th>
+						<th>City id</th>
+						<th>Postal code</th>
+						<th>Phone</th>
+						<th>Last updated</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for address in addresses %}
+						<tr>
+							<td>{{ address.address }}</td>
+							<td>{{ address.district }}</td>
+							<td>{{ address.city_id }}</td>
+							<td>{{ address.postal_code }}</td>
+							<td>{{ address.phone }}</td>
+							<td>{{ address.last_update|date:"Y-m-d" }} {{ address.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/addresses/show/{{ address.id }}">Show</a></td>
+							<td><a href="/addresses/update/{{ address.id }}">Edit</a></td>
+							<td><a href="/addresses/delete/{{ address.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Address</a>
+	</body>
+</html>

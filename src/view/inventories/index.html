@@ -1,0 +1,31 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing inventories</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Film id</th>
+						<th>Store id</th>
+						<th>Last Update</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for inventory in inventories %}
+						<tr>
+							<td>{{ inventory.film_id }}</td>
+							<td>{{ inventory.store_id }}</td>
+							<td>{{ inventory.last_update|date:"Y-m-d" }} {{ inventory.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/inventories/show/{{ inventory.id }}">Show</a></td>
+							<td><a href="/inventories/update/{{ inventory.id }}">Edit</a></td>
+							<td><a href="/inventories/delete/{{ inventory.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Inventory</a>
+	</body>
+</html>

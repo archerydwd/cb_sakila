@@ -1,0 +1,17 @@
+<h1>Editing category</h1>
+	<form method="post">
+		<p>
+			Name<br>
+			<input name="name" value="{{ category.name }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update Category"/>
+		</p>
+	</form>
+	<a href="/categories/show/{{ category.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

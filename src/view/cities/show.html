@@ -1,0 +1,15 @@
+	<p>
+		<strong>City:</strong>
+		{{ city.city }}
+	</p>
+	<p>
+		<strong>Country id</strong>
+		{{ city.country_id }}
+	</p>
+	<p>
+		<strong>Last update:</strong>
+		{{ city.last_update|date:"Y-m-d" }} {{ city.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/cities/update/{{ city.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

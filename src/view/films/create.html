@@ -1,0 +1,57 @@
+<h1>Create a new Film</h1>
+{% if errors %}
+	<ol>
+		{% for error in errors %}
+		<li><font color=red>{{ error }}</font>
+		{% endfor %}
+	</ol>
+{% endif %}
+
+<form method="post">
+	<p>
+		Title:<br>
+		<input name="title" value="{{ film.title|default_if_none:'' }}"/>
+	</p>
+	<p>
+		Description:<br>
+		<input name="description" value="{{ film.description|default_if_none:'' }}"/>
+	</p>
+	<p>
+		Release year:<br>
+		<input name="release_year" value="{{ film.release_year|default_if_none:'' }}"/>
+	</p>
+	<p>
+		Language id:<br>
+		<input name="language_id" value="{{ film.language_id|default_if_none:'' }}"/>
+	</p>
+	<p>
+		Rental duration:<br>
+		<input name="rental_duration" value="{{ film.rental_duration|default_if_none:'' }}"/>
+	</p>
+	<p>
+		Rental rate:<br>
+		<input name="rental_rate" value="{{ film.rental_rate|default_if_none:'' }}"/>
+	</p>
+	<p>
+		Length:<br>
+		<input name="length" value="{{ film.length|default_if_none:'' }}"/>
+	</p>
+	<p>
+		Replacement cost:<br>
+		<input name="replacement_cost" value="{{ film.replacement_cost|default_if_none:'' }}"/>
+	</p>
+	<p>
+		Rating:<br>
+		<input name="rating" value="{{ film.rating|default_if_none:'' }}"/>
+	</p>
+	<p>                                                                                 
+		Special features:<br>
+		<input name="special_features" value="{{ film.special_features|default_if_none:'' }}"/>
+	</p>
+	<p>
+		<input type="submit" value="Create Film"/>
+	</p>
+</form>
+<a href="{% url action="index" %}">Back</a>
+
+

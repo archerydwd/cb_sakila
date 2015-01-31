@@ -1,0 +1,35 @@
+<h1>Create a new Address</h1>
+	{% if errors %}
+		<ol>
+			{% for error in errors %}
+				<li><font color=red>{{ error }}</font>
+			{% endfor %}
+		</ol>
+	{% endif %}
+
+	<form method="post">
+		<p>
+			Address:<br>
+			<input name="address" value="{{ address.address|default_if_none:'' }}"/>
+		</p>
+		<p>
+			District:<br>
+			<input name="district" value="{{ address.district|default_if_none:'' }}"/>
+		</p>
+		<p>
+			City Id:<br>
+			<input name="city_id" value="{{ address.city_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Postal Code:<br>
+			<input name="postal_code" value="{{ address.postal_code|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Phone:<br>
+			<input name="phone" value="{{ address.phone|default_if_none:'' }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Create Address"/>
+		</p>
+	</form>
+	<a href="{% url action="index" %}">Back</a>

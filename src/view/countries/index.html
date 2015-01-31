@@ -1,0 +1,29 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing countries</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Country</th>
+						<th>Last Update</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for country in countries %}
+						<tr>
+							<td>{{ country.country }}</td>
+							<td>{{ country.last_update|date:"Y-m-d" }} {{ country.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/countries/show/{{ country.id }}">Show</a></td>
+							<td><a href="/countries/update/{{ country.id }}">Edit</a></td>
+							<td><a href="/countries/delete/{{ country.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Country</a>
+	</body>
+</html>

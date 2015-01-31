@@ -1,0 +1,47 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing films</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Description</th>
+						<th>Release year</th>
+						<th>Language id</th>
+						<th>Rental duration</th>
+						<th>Rental rate</th>
+						<th>Length</th>
+						<th>Replacement cost</th>
+						<th>Rating</th>
+						<th>Special features</th>
+						<th>Last updated</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for film in films %}
+						<tr>
+							<td>{{ film.title }}</td>
+							<td>{{ film.description }}</td>
+							<td>{{ film.release_year }}</td>
+							<td>{{ film.language_id }}</td>
+							<td>{{ film.rental_duration }}</td>
+							<td>{{ film.rental_rate }}</td>
+							<td>{{ film.length }}</td>
+							<td>{{ film.replacement_cost }}</td>
+							<td>{{ film.rating }}</td>
+							<td>{{ film.special_features }}</td>
+							<td>{{ film.last_update|date:"Y-m-d" }} {{ film.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/films/show/{{ film.id }}">Show</a></td>
+							<td><a href="/films/update/{{ film.id }}">Edit</a></td>
+							<td><a href="/films/delete/{{ film.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Film</a>
+	</body>
+</html>

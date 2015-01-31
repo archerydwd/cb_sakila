@@ -1,0 +1,17 @@
+<h1>Editing language</h1>
+	<form method="post">
+		<p>
+			Name<br>
+			<input name="name" value="{{ language.name }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update Language"/>
+		</p>
+	</form>
+	<a href="/languages/show/{{ language.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

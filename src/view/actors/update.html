@@ -1,0 +1,21 @@
+<h1>Editing actor</h1>
+	<form method="post">
+		<p>
+			First name<br>
+			<input name="first_name" value="{{ actor.first_name }}"/>
+		</p>
+		<p>
+			Last name<br>
+			<input name="last_name" value="{{ actor.last_name }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update Actor"/>
+		</p>
+	</form>
+	<a href="/actors/show/{{ actor.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

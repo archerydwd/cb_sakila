@@ -1,0 +1,6 @@
+-module(store, [Id, AddressId, LastUpdate]).
+-compile(export_all).
+-belongs_to(address).
+-has({customers, many}).
+-has({inventories, many}).
+-has({staffs, many}).

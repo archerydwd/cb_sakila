@@ -1,0 +1,27 @@
+	<p>
+		<strong>Customer id</strong>
+		{{ payment.customer_id }}
+	</p>
+	<p>
+		<strong>Staff id</strong>
+		{{ payment.staff_id }}
+	</p>
+	<p>
+		<strong>Rental id</strong>
+		{{ payment.rental_id }}
+	</p>
+	<p>
+		<strong>Amount</strong>
+		{{ payment.amount }}
+	</p>
+	<p>
+		<strong>Payment date</strong>
+		{{ payment.payment_date|date:"Y-m-d" }} {{ payment.payment_date|time:"H:i:s" }} UTC
+	</p>
+	<p>
+		<strong>Last update:</strong>
+		{{ payment.last_update|date:"Y-m-d" }} {{ payment.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/payments/update/{{ payment.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

@@ -1,0 +1,35 @@
+	<p>
+		<strong>Store id</strong>
+		{{ customer.store_id }}
+	</p>
+	<p>
+		<strong>First name</strong>
+		{{ customer.first_name }}
+	</p>
+	<p>
+		<strong>Last name</strong>
+		{{ customer.last_name }}
+	</p>
+	<p>
+		<strong>Email</strong>
+		{{ customer.email }}
+	</p>
+	<p>
+		<strong>Address id</strong>
+		{{ customer.address_id }}
+	</p>
+	<p>
+	  <strong>Active</strong>
+		{{ customer.active }}
+	</p>
+	<p>
+		<strong>Creation date</strong>
+		{{ customer.create_date|date:"Y-m-d" }} {{ customer.create_date|time:"H:i:s" }} UTC
+	</p>
+	<p>
+		<strong>Last update</strong>
+		{{ customer.last_update|date:"Y-m-d" }} {{ customer.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/customers/update/{{ customer.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

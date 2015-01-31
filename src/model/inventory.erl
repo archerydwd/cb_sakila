@@ -1,0 +1,5 @@
+-module(inventory, [Id, FilmId, StoreId, LastUpdate]).
+-compile(export_all).
+-belongs_to(film).
+-belongs_to(store).
+-has({rentals, many}).

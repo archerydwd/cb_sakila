@@ -1,0 +1,31 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing actors</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Last Update</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for actor in actors %}
+						<tr>
+							<td>{{ actor.first_name }}</td>
+							<td>{{ actor.last_name }}</td>
+							<td>{{ actor.last_update|date:"Y-m-d" }} {{ actor.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/actors/show/{{ actor.id }}">Show</a></td>
+							<td><a href="/actors/update/{{ actor.id }}">Edit</a></td>
+							<td><a href="/actors/delete/{{ actor.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Actor</a>
+	</body>
+</html>

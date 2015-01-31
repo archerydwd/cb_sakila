@@ -1,0 +1,6 @@
+-module(rental, [Id, RentalDate, InventoryId, CustomerId, ReturnDate, StaffId, LastUpdate]).
+-compile(export_all).
+-belongs_to(inventory).
+-belongs_to(customer).
+-belongs_to(staff).
+-has({payments, many}).

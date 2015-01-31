@@ -1,0 +1,27 @@
+<h1>Create a new Rental</h1>
+	{% if errors %}
+		<ol>
+			{% for error in errors %}
+				<li><font color=red>{{ error }}</font>
+			{% endfor %}
+		</ol>
+	{% endif %}
+
+	<form method="post">
+		<p>
+			Inventory id:<br>
+			<input name="inventory_id" value="{{ rental.inventory_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Customer id:<br>
+			<input name="customer_id" value="{{ rental.customer_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Staff Id:<br>
+			<input name="staff_id" value="{{ rental.staff_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Create Rental"/>
+		</p>
+	</form>
+	<a href="{% url action="index" %}">Back</a>

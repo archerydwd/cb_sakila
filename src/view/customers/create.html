@@ -1,0 +1,39 @@
+<h1>Create a new Customer</h1>
+	{% if errors %}
+		<ol>
+			{% for error in errors %}
+				<li><font color=red>{{ error }}</font>
+			{% endfor %}
+		</ol>
+	{% endif %}
+
+	<form method="post">
+		<p>
+			Store id:<br>
+			<input name="store_id" value="{{ customer.store_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			First name:<br>
+			<input name="first_name" value="{{ customer.first_name|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Last name:<br>
+			<input name="last_name" value="{{ customer.last_name|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Email:<br>
+			<input name="email" value="{{ customer.email|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Address id:<br>
+			<input name="address_id" value="{{ customer.address_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Active:<br>
+			<input type="checkbox" name="active" value="{{ customer.active }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Create Customer"/>
+		</p>
+	</form>
+	<a href="{% url action="index" %}">Back</a>

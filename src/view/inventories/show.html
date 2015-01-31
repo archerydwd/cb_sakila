@@ -1,0 +1,15 @@
+	<p>
+		<strong>Film id</strong>
+		{{ inventory.film_id }}
+	</p>
+	<p>
+		<strong>Store id</strong>
+		{{ inventory.store_id }}
+	</p>
+	<p>
+		<strong>Last update</strong>
+		{{ inventory.last_update|date:"Y-m-d" }} {{ inventory.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/inventories/update/{{ inventory.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

@@ -1,0 +1,11 @@
+	<p>
+		<strong>Name:</strong>
+		{{ category.name }}
+	</p>
+	<p>
+		<strong>Last update:</strong>
+		{{ category.last_update|date:"Y-m-d" }} {{ category.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/categories/update/{{ category.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

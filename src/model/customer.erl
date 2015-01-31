@@ -1,0 +1,6 @@
+-module(customer, [Id, StoreId, FirstName, LastName, Email, AddressId, Active, CreateDate, LastUpdate]).
+-compile(export_all).
+-belongs_to(store).
+-belongs_to(address).
+-has({payments, many}).
+-has({rentals, many}).

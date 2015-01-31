@@ -1,0 +1,37 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing rentals</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Rental date</th>
+						<th>Inventory id</th>
+						<th>Customer id</th>
+						<th>Return date</th>
+						<th>Staff id</th>
+						<th>Last updated</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for rental in rentals %}
+						<tr>
+							<td>{{ rental.rental_date|date:"Y-m-d" }} {{ rental.rental_date|time:"H:i:s" }} UTC</td>
+							<td>{{ rental.inventory_id }}</td>
+							<td>{{ rental.customer_id }}</td>
+							<td>{{ rental.return_date|date:"Y-m-d" }} {{ rental.return_date|time:"H:i:s" }} UTC</td>
+							<td>{{ rental.staff_id }}</td>
+							<td>{{ rental.last_update|date:"Y-m-d" }} {{ rental.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/rentals/show/{{ rental.id }}">Show</a></td>
+							<td><a href="/rentals/update/{{ rental.id }}">Edit</a></td>
+							<td><a href="/rentals/delete/{{ rental.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Rental</a>
+	</body>
+</html>

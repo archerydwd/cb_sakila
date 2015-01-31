@@ -1,0 +1,33 @@
+<h1>Editing address</h1>
+	<form method="post">
+		<p>
+			Address<br>
+			<input name="address" value="{{ address.address }}"/>
+		</p>
+		<p>
+		  District<br>
+			<input name="district" value="{{ address.district }}"/>
+		</p>
+		<p>
+			City id<br>
+			<input name="city_id" value="{{ address.city_id }}"/>
+		</p>
+ 		<p>
+      Postal code<br>
+			<input name="postal_code" value="{{ address.postal_code }}"/>
+		</p>
+	 	<p>
+      Phone<br>
+			<input name="phone" value="{{ address.phone }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update Address"/>
+		</p>
+	</form>
+	<a href="/addresses/show/{{ address.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

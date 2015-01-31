@@ -1,0 +1,21 @@
+<h1>Editing inventory</h1>
+	<form method="post">
+		<p>
+			Film id<br>
+			<input name="film_id" value="{{ inventory.film_id }}"/>
+		</p>
+		<p>
+			Store id<br>
+			<input name="store_id" value="{{ inventory.store_id }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update Inventory"/>
+		</p>
+	</form>
+	<a href="/inventories/show/{{ inventory.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

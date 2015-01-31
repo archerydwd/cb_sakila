@@ -1,0 +1,29 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing stores</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Address id</th>
+						<th>Last Update</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for store in stores %}
+						<tr>
+							<td>{{ store.address_id }}</td>
+							<td>{{ store.last_update|date:"Y-m-d" }} {{ store.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/stores/show/{{ store.id }}">Show</a></td>
+							<td><a href="/stores/update/{{ store.id }}">Edit</a></td>
+							<td><a href="/stores/delete/{{ store.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Store</a>
+	</body>
+</html>

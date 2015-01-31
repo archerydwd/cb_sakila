@@ -1,0 +1,2 @@
+-module(filmtext, [Id, Title, Description]).
+-compile(export_all).

@@ -1,0 +1,53 @@
+<h1>Editing film</h1>
+	<form method="post">
+		<p>
+			Title<br>
+			<input name="title" value="{{ film.title }}"/>
+		</p>
+		<p>
+		  Description<br>
+			<input name="description" value="{{ film.description }}"/>
+		</p>
+		<p>
+			Release year<br>
+			<input name="release_year" value="{{ film.release_year }}"/>
+		</p>
+ 		<p>
+      Language id<br>
+			<input name="language_id" value="{{ film.language_id }}"/>
+		</p>
+	 	<p>
+      Rental duration<br>
+			<input name="rental_duration" value="{{ film.rental_duration }}"/>
+		</p>
+	 	<p>
+      Rental rate<br>
+			<input name="rental_rate" value="{{ film.rental_rate }}"/>
+		</p>
+	 	<p>
+      Length<br>
+			<input name="length" value="{{ film.length }}"/>
+		</p>
+	 	<p>
+      Replacement cost<br>
+			<input name="replacement_cost" value="{{ film.replacement_cost }}"/>
+		</p>
+	 	<p>
+      Rating<br>
+			<input name="rating" value="{{ film.rating }}"/>
+		</p>
+	 	<p>
+      Special features<br>
+			<input name="special_features" value="{{ film.special_features }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update Film"/>
+		</p>
+	</form>
+	<a href="/films/show/{{ film.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

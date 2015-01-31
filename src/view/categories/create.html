@@ -1,0 +1,19 @@
+<h1>Create a new category</h1>
+	{% if errors %}
+		<ol>
+			{% for error in errors %}
+				<li><font color=red>{{ error }}</font>
+			{% endfor %}
+		</ol>
+	{% endif %}
+
+	<form method="post">
+		<p>
+			Name:<br>
+			<input name="name" value="{{ category.name|default_if_none:'' }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Create Category"/>
+		</p>
+	</form>
+	<a href="{% url action="index" %}">Back</a>

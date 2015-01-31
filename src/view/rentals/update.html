@@ -1,0 +1,25 @@
+<h1>Editing Rental</h1>
+	<form method="post">
+		<p>
+			Inventory id<br>
+			<input name="inventory_id" value="{{ rental.inventory_id }}"/>
+		</p>
+		<p>
+		  Customer id<br>
+			<input name="customer_id" value="{{ rental.customer_id }}"/>
+		</p>
+		<p>
+			Staff id<br>
+			<input name="staff_id" value="{{ rental.staff_id }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update Rental"/>
+		</p>
+	</form>
+	<a href="/rentals/show/{{ rental.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

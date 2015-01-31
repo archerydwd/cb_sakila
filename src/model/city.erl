@@ -1,0 +1,4 @@
+-module(city, [Id, City, CountryId, LastUpdate]).
+-compile(export_all).
+-belongs_to(country).
+-has({addresses, many}).

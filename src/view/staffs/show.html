@@ -1,0 +1,39 @@
+<p>
+	<strong>First Name:</strong>
+	{{ staff.first_name }}
+</p>
+<p>
+	<strong>Last Name:</strong>
+	{{ staff.last_name }}
+</p>
+<p>
+	<strong>Address id:</strong>
+	{{ staff.address_id }}
+</p>
+<p>
+	<strong>Email:</strong>
+	{{ staff.email }}
+</p>
+<p>
+	<strong>Store id:</strong>
+	{{ staff.store_id }}
+</p>
+<p>
+	<strong>Active:</strong>
+	{{ staff.active }}
+</p>
+<p>
+	<strong>Username:</strong>
+	{{ staff.username }}
+</p>
+<p>
+	<strong>Password:</strong>
+	{{ staff.password }}
+</p>
+<p>
+	<strong>Last update:</strong>
+	{{ staff.last_update|date:"Y-m-d" }} {{ staff.last_update|time:"H:i:s" }} UTC
+</p>
+
+<a href="/staffs/update/{{ staff.id }}">Edit</a> |
+<a href="{% url action="index" %}">Back</a> 

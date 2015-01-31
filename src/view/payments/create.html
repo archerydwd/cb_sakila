@@ -1,0 +1,31 @@
+<h1>Create a new Payment</h1>
+	{% if errors %}
+		<ol>
+			{% for error in errors %}
+				<li><font color=red>{{ error }}</font>
+			{% endfor %}
+		</ol>
+	{% endif %}
+
+	<form method="post">
+		<p>
+			Customer id:<br>
+			<input name="customer_id" value="{{ payment.customer_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Staff id:<br>
+			<input name="staff_id" value="{{ payment.staff_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Rental id:<br>
+			<input name="rental_id" value="{{ payment.rental_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Amount:<br>
+			<input name="amount" value="{{ payment.amount|default_if_none:'' }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Create Payment"/>
+		</p>
+	</form>
+	<a href="{% url action="index" %}">Back</a>

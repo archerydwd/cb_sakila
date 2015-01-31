@@ -1,0 +1,21 @@
+<h1>Editing city</h1>
+	<form method="post">
+		<p>
+			City<br>
+			<input name="city" value="{{ city.city }}"/>
+		</p>
+		<p>
+			Country id<br>
+			<input name="country_id" value="{{ city.country_id }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update City"/>
+		</p>
+	</form>
+	<a href="/cities/show/{{ city.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

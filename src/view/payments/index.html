@@ -1,0 +1,37 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing payments</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Customer id</th>
+						<th>Staff id</th>
+						<th>Rental id</th>
+						<th>Amount</th>
+						<th>Payment date</th>
+						<th>Last updated</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for payment in payments %}
+						<tr>
+							<td>{{ payment.customer_id }}</td>
+							<td>{{ payment.staff_id }}</td>
+							<td>{{ payment.rental_id }}</td>
+							<td>{{ payment.amount }}</td>
+							<td>{{ payment.payment_date|date:"Y-m-d" }} {{ payment.payment_date|time:"H:i:s" }} UTC</td>
+							<td>{{ payment.last_update|date:"Y-m-d" }} {{ payment.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/payments/show/{{ payment.id }}">Show</a></td>
+							<td><a href="/payments/update/{{ payment.id }}">Edit</a></td>
+							<td><a href="/payments/delete/{{ payment.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Payment</a>
+	</body>
+</html>

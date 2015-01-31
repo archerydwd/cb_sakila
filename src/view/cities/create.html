@@ -1,0 +1,23 @@
+<h1>Create a new City</h1>
+	{% if errors %}
+		<ol>
+			{% for error in errors %}
+				<li><font color=red>{{ error }}</font>
+			{% endfor %}
+		</ol>
+	{% endif %}
+
+	<form method="post">
+		<p>
+			City:<br>
+			<input name="city" value="{{ city.city|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Country id:<br>
+			<input name="country_id" value="{{ city.country_id|default_if_none:'' }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Create City"/>
+		</p>
+	</form>
+	<a href="{% url action="index" %}">Back</a>

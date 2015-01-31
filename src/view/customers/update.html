@@ -1,0 +1,37 @@
+<h1>Editing customer</h1>
+	<form method="post">
+		<p>
+			Store id<br>
+			<input name="store_id" value="{{ customer.store_id }}"/>
+		</p>
+		<p>
+			First name<br>
+			<input name="first_name" value="{{ customer.first_name }}"/>
+		</p>
+		<p>
+			Last name<br>
+			<input name="last_name" value="{{ customer.last_name }}"/>
+		</p>
+ 		<p>
+			Email<br>
+			<input name="email" value="{{ customer.email }}"/>
+		</p>
+	 	<p>
+      Address id<br>
+			<input name="address_id" value="{{ customer.address_id }}"/>
+		</p>
+		<p>
+			Active<br>
+			<input name="active" value="{{ customer.active }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update Customer"/>
+		</p>
+	</form>
+	<a href="/customers/show/{{ customer.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

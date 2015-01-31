@@ -1,0 +1,29 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing languages</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Last Update</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for language in languages %}
+						<tr>
+							<td>{{ language.name }}</td>
+							<td>{{ language.last_update|date:"Y-m-d" }} {{ language.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/languages/show/{{ language.id }}">Show</a></td>
+							<td><a href="/languages/update/{{ language.id }}">Edit</a></td>
+							<td><a href="/languages/delete/{{ language.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Language</a>
+	</body>
+</html>

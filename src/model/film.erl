@@ -1,0 +1,4 @@
+-module(film, [Id, Title, Description, ReleaseYear, LanguageId, RentalDuration, RentalRate, Length, ReplacementCost, Rating, SpecialFeatures, LastUpdate]).
+-compile(export_all).
+-belongs_to(language).
+-has({inventories, many}).

@@ -1,0 +1,21 @@
+<h1>Editing film text</h1>
+	<form method="post">
+		<p>
+			Title<br>
+			<input name="title" value="{{ filmtext.title }}"/>
+		</p>
+		<p>
+			Description<br>
+			<input name="description" value="{{ filmtext.description }}"/>
+		</p>	
+		<p>
+			<input type="submit" value="Update Film Text"/>
+		</p>
+	</form>
+	<a href="/filmtexts/show/{{ filmtext.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

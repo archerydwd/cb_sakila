@@ -1,0 +1,41 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing customers</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Store id</th>
+						<th>First name</th>
+						<th>Last name</th>
+						<th>Email</th>
+						<th>Address id</th>
+						<th>Active</th>
+						<th>Creation date</th>
+						<th>Last updated</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for customer in customers %}
+						<tr>
+							<td>{{ customer.store_id }}</td>
+							<td>{{ customer.first_name }}</td>
+							<td>{{ customer.last_name }}</td>
+							<td>{{ customer.email }}</td>
+							<td>{{ customer.address_id }}</td>
+							<td>{{ customer.active }}</td>
+							<td>{{ customer.create_date|date:"Y-m-d" }} {{ customer.create_date|time:"H:i:s" }} UTC</td>
+							<td>{{ customer.last_update|date:"Y-m-d" }} {{ customer.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/customers/show/{{ customer.id }}">Show</a></td>
+							<td><a href="/customers/update/{{ customer.id }}">Edit</a></td>
+							<td><a href="/customers/delete/{{ customer.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Customer</a>
+	</body>
+</html>

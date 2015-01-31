@@ -1,0 +1,31 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing cities</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>City</th>
+						<th>Country id</th>
+						<th>Last Update</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for city in cities %}
+						<tr>
+							<td>{{ city.city }}</td>
+							<td>{{ city.country_id }}</td>
+							<td>{{ city.last_update|date:"Y-m-d" }} {{ city.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/cities/show/{{ city.id }}">Show</a></td>
+							<td><a href="/cities/update/{{ city.id }}">Edit</a></td>
+							<td><a href="/cities/delete/{{ city.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New City</a>
+	</body>
+</html>

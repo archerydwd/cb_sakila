@@ -1,0 +1,29 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing categories</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Last Update</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for category in categories %}
+						<tr>
+							<td>{{ category.name }}</td>
+							<td>{{ category.last_update|date:"Y-m-d" }} {{ category.last_update|time:"H:i:s" }} UTC</td>
+							<td><a href="/categories/show/{{ category.id }}">Show</a></td>
+							<td><a href="/categories/update/{{ category.id }}">Edit</a></td>
+							<td><a href="/categories/delete/{{ category.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Category</a>
+	</body>
+</html>

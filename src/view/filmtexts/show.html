@@ -1,0 +1,11 @@
+	<p>
+		<strong>Title</strong>
+		{{ filmtext.title }}
+	</p>
+	<p>
+		<strong>Description</strong>
+		{{ filmtext.description }}
+	</p>
+
+	<a href="/filmtexts/update/{{ filmtext.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

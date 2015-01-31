@@ -1,0 +1,30 @@
+<h1>Editing payment</h1>
+	<form method="post">
+		<p>
+			Customer id<br>
+			<input name="customer_id" value="{{ payment.customer_id }}"/>
+		</p>
+		<p>
+		  Staff id<br>
+			<input name="staff_id" value="{{ payment.staff_id }}"/>
+		</p>
+		<p>
+			Rental id<br>
+			<input name="rental_id" value="{{ payment.rental_id }}"/>
+		</p>
+ 		<p>
+      Amount<br>
+			<input name="amount" value="{{ payment.amount }}"/>
+		</p>
+	 	<p>
+		<p>
+			<input type="submit" value="Update Payment"/>
+		</p>
+	</form>
+	<a href="/payments/show/{{ payment.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

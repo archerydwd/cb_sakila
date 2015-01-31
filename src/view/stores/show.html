@@ -1,0 +1,11 @@
+	<p>
+		<strong>Address id</strong>
+		{{ store.address_id }}
+	</p>
+	<p>
+		<strong>Last update:</strong>
+		{{ store.last_update|date:"Y-m-d" }} {{ store.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/stores/update/{{ store.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

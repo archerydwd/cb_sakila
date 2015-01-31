@@ -1,0 +1,3 @@
+-module(language, [Id, Name, LastUpdate]).
+-compile(export_all).
+-has({films, many}).

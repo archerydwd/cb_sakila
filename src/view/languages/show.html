@@ -1,0 +1,11 @@
+	<p>
+		<strong>Name</strong>
+		{{ language.name }}
+	</p>
+	<p>
+		<strong>Last update:</strong>
+		{{ language.last_update|date:"Y-m-d" }} {{ language.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/languages/update/{{ language.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

@@ -1,0 +1,23 @@
+<h1>Create a new Actor</h1>
+	{% if errors %}
+		<ol>
+			{% for error in errors %}
+				<li><font color=red>{{ error }}</font>
+			{% endfor %}
+		</ol>
+	{% endif %}
+
+	<form method="post">
+		<p>
+			First Name:<br>
+			<input name="first_name" value="{{ actor.first_name|default_if_none:'' }}"/>
+		</p>
+		<p>
+			Last Name:<br>
+			<input name="last_name" value="{{ actor.last_name|default_if_none:'' }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Create Actor"/>
+		</p>
+	</form>
+	<a href="{% url action="index" %}">Back</a>

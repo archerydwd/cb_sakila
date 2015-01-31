@@ -1,0 +1,11 @@
+	<p>
+		<strong>Country</strong>
+		{{ country.country }}
+	</p>
+	<p>
+		<strong>Last update:</strong>
+		{{ country.last_update|date:"Y-m-d" }} {{ country.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/countries/update/{{ country.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

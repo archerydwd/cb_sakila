@@ -1,0 +1,2 @@
+-module(category, [Id, Name, LastUpdate]).
+-compile(export_all).

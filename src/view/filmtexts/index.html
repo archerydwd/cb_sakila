@@ -1,0 +1,29 @@
+<html>
+	<head>
+	</head>
+	<body>
+			<h1>Listing film texts</h1>
+			<table>
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for filmtext in filmtexts %}
+						<tr>
+							<td>{{ filmtext.title }}</td>
+							<td>{{ filmtext.description }}</td>
+							<td><a href="/filmtexts/show/{{ filmtext.id }}">Show</a></td>
+							<td><a href="/filmtexts/update/{{ filmtext.id }}">Edit</a></td>
+							<td><a href="/filmtexts/delete/{{ filmtext.id }}">Destroy</a></td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<a href="{% url action="create" %}">New Film Text</a>
+	</body>
+</html>

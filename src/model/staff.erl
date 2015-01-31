@@ -1,0 +1,6 @@
+-module(staff, [Id, FirstName, LastName, AddressId, Email, StoreId, Active, Username, Password, LastUpdate]).
+-compile(export_all).
+-belongs_to(address).
+-belongs_to(store).
+-has({payments, many}).
+-has({rentals, many}).

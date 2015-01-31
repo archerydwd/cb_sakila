@@ -1,0 +1,17 @@
+<h1>Editing store</h1>
+	<form method="post">
+		<p>
+			Address id<br>
+			<input name="address_id" value="{{ store.address_id }}"/>
+		</p>
+		<p>
+			<input type="submit" value="Update Store"/>
+		</p>
+	</form>
+	<a href="/stores/show/{{ store.id }}">Show</a> |
+	<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

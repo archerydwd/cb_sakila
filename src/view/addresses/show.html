@@ -1,0 +1,27 @@
+	<p>
+		<strong>Address:</strong>
+		{{ address.address }}
+	</p>
+	<p>
+		<strong>District</strong>
+		{{ address.district }}
+	</p>
+	<p>
+		<strong>City id</strong>
+		{{ address.city_id }}
+	</p>
+	<p>
+		<strong>Postal code</strong>
+		{{ address.postal_code }}
+	</p>
+	<p>
+		<strong>Phone</strong>
+		{{ address.phone }}
+	</p>
+	<p>
+		<strong>Last update:</strong>
+		{{ address.last_update|date:"Y-m-d" }} {{ address.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/addresses/update/{{ address.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

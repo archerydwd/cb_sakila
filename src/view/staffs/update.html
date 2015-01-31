@@ -1,0 +1,45 @@
+<h1>Editing staff</h1>
+<form method="post">
+	<p>
+		First name<br>
+		<input name="first_name" value="{{ staff.first_name }}"/>
+	</p>
+	<p>
+		Last name<br>
+		<input name="last_name" value="{{ staff.last_name }}"/>
+	</p>	
+	<p>
+		Address id<br>
+		<input name="address_id" value="{{ staff.address_id }}"/>
+	</p>
+	<p>
+		Email<br>
+		<input name="email" value="{{ staff.email }}"/>
+	</p>
+	<p>
+		Store id<br>
+		<input name="store_id" value="{{ staff.store_id }}"/>
+	</p>
+	<p>
+		Active<br>
+		<input type="checkbox" name="active" value="{{ staff.active }}"/>
+	</p>
+	<p>
+		Username<br>
+		<input name="username" value="{{ staff.username }}"/>
+	</p>
+	<p>
+		Password<br>
+		<input name="password" value="{{ staff.password }}"/>
+	</p>
+	<p>
+		<input type="submit" value="Update Staff"/>
+	</p>
+</form>
+<a href="/staffs/show/{{ staff.id }}">Show</a> |
+<a href="{% url action="index" %}">Back</a>
+
+
+
+
+

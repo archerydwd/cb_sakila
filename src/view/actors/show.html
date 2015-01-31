@@ -1,0 +1,15 @@
+	<p>
+		<strong>First Name:</strong>
+		{{ actor.first_name }}
+	</p>
+	<p>
+		<strong>Last Name</strong>
+		{{ actor.last_name }}
+	</p>
+	<p>
+		<strong>Last update:</strong>
+		{{ actor.last_update|date:"Y-m-d" }} {{ actor.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/actors/update/{{ actor.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 

@@ -1,0 +1,27 @@
+	<p>
+		<strong>Rental date</strong>
+		{{ rental.rental_date|date:"Y-m-d" }} {{ rental.rental_date|time:"H:i:s" }} UTC
+	</p>
+	<p>
+		<strong>Inventory id</strong>
+		{{ rental.inventory_id }}
+	</p>
+	<p>
+		<strong>Customer id</strong>
+		{{ rental.customer_id }}
+	</p>
+	<p>
+		<strong>Return date</strong>
+		{{ rental.return_date|date:"Y-m-d" }} {{ rental.return_date|time:"H:i:s" }} UTC
+	</p>
+	<p>
+		<strong>Staff id</strong>
+		{{ rental.staff_id }}
+	</p>
+	<p>
+		<strong>Last update:</strong>
+		{{ rental.last_update|date:"Y-m-d" }} {{ rental.last_update|time:"H:i:s" }} UTC
+	</p>
+
+	<a href="/rentals/update/{{ rental.id }}">Edit</a> |
+	<a href="{% url action="index" %}">Back</a> 
