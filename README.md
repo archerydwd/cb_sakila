@@ -31,27 +31,31 @@ sudo apt-get erlang
 cd ChicagoBoss
 make
 ```
+
+###Building the application
+
 **Create the cb_sakila app**
+
 ```
 make app PROJECT=cb_sakila
 cd ../blog
 ```
 
-###Building the application
-
 **Starting the development server**
 
 To start the dev server:
+
 ```
 ./init-dev.sh
 ```
 
 To stop the development server:
+
 ```
 ctrl + c
 ```
 
-**HERE**
+
 
 
 
