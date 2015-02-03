@@ -113,11 +113,22 @@ Ok we are going to create all of the models that we will need in this section.
 
 *Let me explain,* name should be the same as the file name. Id always should be first in the attribute list, this makes boss create the id itself. Also note in the database the id field has to be named 'id' and not actor_id or anything else like this. Then after Id, you can put the other attributes, but a field named actor_name should be named ActorName in the attributes list. Forign keys should be named here too, in camel case format alse.
 
-Create the model for actors, please note the name for the m:
+* The second line should be -compile(export_all). export_all means export all the functions that are in this module. To make them available outside of the module.
+* -belongs_to(othermodel) means that there is an association between this model and the one in the brackets.
+* -has_many(othermodel) means that there is an association between this model and the one in the brackets. This goes into the model that would be in the brackets of the -belongs_to part in the other model.
+
+Anyway lets get to it.
+
+*Create the model for actors:*
 
 >touch src/model/actor.erl
 
 Now edit: src/model/actor.erl
+
+```
+-module(actor, [Id, FirstName, LastName, LastUpdate]).
+-compile(export_all).
+```
 
 
 **Create the controllers**
