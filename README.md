@@ -69,6 +69,8 @@ show tables;
 
 ###Building the application
 
+Because we do not have scaffolding or generators in Chicago Boss, we have to manually enter all the details from the database ourselves in order to create the app. So here goes..
+
 **Create the cb_sakila app**
 
 ```
@@ -105,6 +107,16 @@ Edit the boss.config under the Database header:
 
 **Create the Models**
 
+Ok we are going to create all of the models that we will need in this section. 
+* First thing to note is that the name of the file should not be plural, eg: the model for actors should be actor.erl.
+* Inside any model file. The first line has to be -module(name, [Id, Attributes, FilmId]).
+* * Let me explain, name should be the same as the file name. Id always should be first in the attribute list, this makes boss create the id itself. Also note in the database the id field has to be named 'id' and not actor_id or anything else like this. Then after Id, you can put the other attributes, but a field named actor_name should be named ActorName in the attributes list. Forign keys should be named here too, in camel case format alse.
+
+Create the model for actors, please note the name for the m:
+
+>touch src/model/actor.erl
+
+Now edit: src/model/actor.erl
 
 
 **Create the controllers**
