@@ -92,9 +92,40 @@ ctrl + c
 
 **Pointing the app to the database**
 
+Edit the boss.config under the Database header:
+
+```
+{db_host, "localhost"},
+% {db_port, 1978},
+{db_adapter, mysql},
+{db_username, "root"},
+{db_password, "secret"},
+{db_database, "cb_sakila"},
+```
+
+**Create the Models**
 
 
 
+**Create the controllers**
+
+
+
+**Create the views**
+
+
+
+
+**Create the home controller and index view**
+
+
+
+
+**Set the root route**
+
+
+
+**The End**
 
 
 
