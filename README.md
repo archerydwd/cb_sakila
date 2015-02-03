@@ -32,6 +32,11 @@ cd ChicagoBoss
 make
 ```
 
+**Working with the existing database**
+
+Firstly I am creating this application with the sakila_dump.sql file, which you can get from here: . Its included in the source for this repository.
+
+
 **Install mysql**
 
 We are going to be using mysql for this database. If you don't have it, please install it:
