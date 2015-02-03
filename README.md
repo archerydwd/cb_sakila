@@ -32,11 +32,17 @@ cd ChicagoBoss
 make
 ```
 
+==
+
 **Working with the existing database**
+
+==
 
 Firstly I am creating this application with the sakila_dump.sql file, which you can get from here: https://github.com/archerydwd/cb_sakila/blob/master/sakila_dump.sql. Its included in the source for this repository.
 
+
 **Install mysql**
+
 
 We are going to be using mysql for this database. If you don't have it, please install it:
 
@@ -49,7 +55,11 @@ brew upgrade
 brew install mysql
 ```
 
+==
+
 **Create the database**
+
+==
 
 To create the database, we need to login and enter a few commands. Please note, if this is your first time using mysql, the first time you login and enter a password, this acts as setting a password. If you don't want to set a password (bad idea) just hit enter when it requests the password.
 
@@ -71,14 +81,22 @@ show tables;
 
 Because we do not have scaffolding or generators in Chicago Boss, we have to manually enter all the details from the database ourselves in order to create the app. So here goes..
 
+==
+
 **Create the cb_sakila app**
+
+==
 
 ```
 make app PROJECT=cb_sakila
 cd ../blog
 ```
 
+==
+
 **Starting the development server**
+
+==
 
 To start the dev server:
 
@@ -92,7 +110,11 @@ To stop the development server:
 ctrl + c
 ```
 
+==
+
 **Pointing the app to the database**
+
+==
 
 Edit the boss.config under the Database header:
 
@@ -105,7 +127,11 @@ Edit the boss.config under the Database header:
 {db_database, "cb_sakila"},
 ```
 
+==
+
 **Create the Models**
+
+==
 
 Ok we are going to create all of the models that we will need in this section. 
 * First thing to note is that the name of the file should not be plural, eg: the model for actors should be actor.erl.
@@ -305,7 +331,11 @@ Now edit: src/model/store.erl
 -has({staffs, many}).
 ```
 
+==
+
 **Create the controllers**
+
+==
 
 Things to note about controllers:
 * The name of the controller takes the form: APPLICATIONNAME_MODELNAME_CONTROLLER.ERL
@@ -353,7 +383,11 @@ update('POST', [ActorId]) ->
 
 <fill in the rest of the controllers>
 
+==
+
 **Create the views**
+
+==
 
 For the views, we use html and Django's templating language.
 
@@ -398,6 +432,7 @@ touch src/view/stores/index.html show.html update.html create.html
 Now we can start editing these files:
 
 **Actors**
+
 ==
 *Edit: src/view/actors/index.html*
 
@@ -508,6 +543,7 @@ Now we can start editing these files:
 ==
 
 **Addresses**
+
 ==
 *Edit: src/view/addresses/index.html*
 
