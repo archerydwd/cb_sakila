@@ -307,12 +307,79 @@ Now edit: src/model/store.erl
 
 **Create the controllers**
 
+Things to note about controllers:
+* The name of the controller takes the form: APPLICATIONNAME_MODELNAME_CONTROLLER.ERL
+* The name should be a plural version of the model, for MODELNAME above for the actor controller the name should be: cb_sakila_actors_controller.erl.
+* The first line is: -module(name, [Req]). Req is a SimpleBridge request object, which is used to access useful information such as values that were passed in through a POST call from a form.
+* The -compile(export_all) line still has the same purpose.
+* Each action corrosponds to a template in the views folder, this is achieved through using the same name for the method as the html file.
 
+*Create the controller for actors:*
 
+>touch src/controller/cb_sakila_actors_controller.erl
 
+Now edit: src/controller/cb_sakila_actors_controller.erl
+
+```
+-module(cb_sakila_actors_controller, [Req]).
+-compile(export_all).
+
+index('GET', []) ->
+    Actors = boss_db:find(actor, []),
+    {ok, [{actors, Actors}]}.
+
+show('GET', [ActorId]) ->
+    Actor = boss_db:find(ActorId),
+    {ok, [{actor, Actor}]}.
+
+create('GET', []) -> ok;
+create('POST', []) -> Actor = actor:new(id, Req:post_param("first_name"), Req:post_param("last_name"), erlang:localtime()),
+    case Actor:save() of
+        {ok, SavedActor} -> {redirect, "/actors/show/"++SavedActor:id()};
+        {error, Errors} -> {ok, [{errors, Errors}, {actor, Actor}]}
+        end.
+
+delete('GET', [ActorId]) ->
+    boss_db:delete(ActorId),
+    {redirect, [{action, "index"}]}.
+
+update('GET', [ActorId]) -> Actor = boss_db:find(ActorId), {ok, [{actor, Actor}]};
+update('POST', [ActorId]) ->
+    Actor = boss_db:find(ActorId),
+    EditedActor = Actor:set([{first_name, Req:post_param("first_name")},{last_name, Req:post_param("last_name")}]),
+    EditedActor:save(),
+    {redirect, [{action, "index"}]}.
+```
+
+<fill in the rest of the controllers>
 
 **Create the views**
 
+For the views, we use html and Django's templating language.
+
+We need to create the directories for each model's views. The directory should use the pluralised name.
+
+```
+mkdir src/view/actors
+mkdir src/view/addresses
+mkdir src/view/categories
+mkdir src/view/cities
+mkdir src/view/countries
+mkdir src/view/customers
+mkdir src/view/films
+mkdir src/view/filmtexts
+mkdir src/view/inventories
+mkdir src/view/languages
+mkdir src/view/payments
+mkdir src/view/rentals
+mkdir src/view/staffs
+mkdir src/view/stores
+```
+
+Next we need to create 4 files for each directory, a index, create, show and update .html's.
+
+```
+touch src/view/actors/index.html show.html update.html create.html
 
 
 
