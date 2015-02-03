@@ -114,8 +114,8 @@ Ok we are going to create all of the models that we will need in this section.
 *Let me explain,* name should be the same as the file name. Id always should be first in the attribute list, this makes boss create the id itself. Also note in the database the id field has to be named 'id' and not actor_id or anything else like this. Then after Id, you can put the other attributes, but a field named actor_name should be named ActorName in the attributes list. Forign keys should be named here too, in camel case format alse.
 
 * The second line should be -compile(export_all). export_all means export all the functions that are in this module. To make them available outside of the module.
-* -belongs_to(othermodel) means that there is an association between this model and the one in the brackets.
-* -has_many(othermodel) means that there is an association between this model and the one in the brackets. This goes into the model that would be in the brackets of the -belongs_to part in the other model.
+* -belongs_to(othermodel) means that there is an association between this model and the one in the brackets. In the model in the brackets, you must put a -has() with this model in its brackets.
+* -has(othermodel) means that there is an association between this model and the one in the brackets. This goes into the model that would be in the brackets of the -belongs_to part in the other model.
 
 Anyway lets get to it.
 
@@ -130,8 +130,184 @@ Now edit: src/model/actor.erl
 -compile(export_all).
 ```
 
+*Create the model for addresses:*
+
+>touch src/model/address.erl
+
+Now edit: src/model/address.erl
+
+```
+-module(address, [Id, Address, District, CityId, PostalCode, Phone, LastUpdate]).
+-compile(export_all).
+-belongs_to(city).
+-has({customers, many}).
+-has({staffs, many}).
+-has({stores, many}).
+```
+
+*Create the model for categories:*
+
+>touch src/model/category.erl
+
+Now edit: src/model/category.erl
+
+```
+-module(category, [Id, Name, LastUpdate]).
+-compile(export_all).
+```
+
+*Create the model for cities:*
+
+>touch src/model/city.erl
+
+Now edit: src/model/city.erl
+
+```
+-module(city, [Id, City, CountryId, LastUpdate]).
+-compile(export_all).
+-belongs_to(country).
+-has({addresses, many}).
+```
+
+*Create the model for countries:*
+
+>touch src/model/country.erl
+
+Now edit: src/model/country.erl
+
+```
+-module(country, [Id, Country, LastUpdate]).
+-compile(export_all).
+-has({cities, many}).
+```
+
+*Create the model for customers:*
+
+>touch src/model/customer.erl
+
+Now edit: src/model/customer.erl
+
+```
+-module(customer, [Id, StoreId, FirstName, LastName, Email, AddressId, Active, CreateDate, LastUpdate]).
+-compile(export_all).
+-belongs_to(store).
+-belongs_to(address).
+-has({payments, many}).
+-has({rentals, many}).
+```
+
+*Create the model for films:*
+
+>touch src/model/film.erl
+
+Now edit: src/model/film.erl
+
+```
+-module(film, [Id, Title, Description, ReleaseYear, LanguageId, RentalDuration, RentalRate, Length, ReplacementCost, Rating, SpecialFeatures, LastUpdate]).
+-compile(export_all).
+-belongs_to(language).
+-has({inventories, many}).
+```
+
+*Create the model for filmtexts:*
+
+>touch src/model/filmtext.erl
+
+Now edit: src/model/filmtext.erl
+
+```
+-module(filmtext, [Id, Title, Description]).
+-compile(export_all).
+```
+
+*Create the model for inventories:*
+
+>touch src/model/inventory.erl
+
+Now edit: src/model/inventory.erl
+
+```
+-module(inventory, [Id, FilmId, StoreId, LastUpdate]).
+-compile(export_all).
+-belongs_to(film).
+-belongs_to(store).
+-has({rentals, many}).
+```
+
+*Create the model for languages:*
+
+>touch src/model/language.erl
+
+Now edit: src/model/language.erl
+
+```
+-module(language, [Id, Name, LastUpdate]).
+-compile(export_all).
+-has({films, many}).
+```
+
+*Create the model for payments:*
+
+>touch src/model/payment.erl
+
+Now edit: src/model/payment.erl
+
+```
+-module(payment, [Id, CustomerId, StaffId, RentalId, Amount, PaymentDate, LastUpdate]).
+-compile(export_all).
+-belongs_to(customer).
+-belongs_to(staff).
+-belongs_to(rental).
+```
+
+*Create the model for rentals:*
+
+>touch src/model/rental.erl
+
+Now edit: src/model/rental.erl
+
+```
+-module(rental, [Id, RentalDate, InventoryId, CustomerId, ReturnDate, StaffId, LastUpdate]).
+-compile(export_all).
+-belongs_to(inventory).
+-belongs_to(customer).
+-belongs_to(staff).
+-has({payments, many}).
+```
+
+*Create the model for staffs:*
+
+>touch src/model/staff.erl
+
+Now edit: src/model/staff.erl
+
+```
+-module(staff, [Id, FirstName, LastName, AddressId, Email, StoreId, Active, Username, Password, LastUpdate]).
+-compile(export_all).
+-belongs_to(address).
+-belongs_to(store).
+-has({payments, many}).
+-has({rentals, many}).
+```
+
+*Create the model for stores:*
+
+>touch src/model/store.erl
+
+Now edit: src/model/store.erl
+
+```
+-module(store, [Id, AddressId, LastUpdate]).
+-compile(export_all).
+-belongs_to(address).
+-has({customers, many}).
+-has({inventories, many}).
+-has({staffs, many}).
+```
 
 **Create the controllers**
+
+
 
 
 
