@@ -34,7 +34,7 @@ make
 
 ==
 
-**Working with the existing database**
+###Working with the existing database
 
 ==
 
@@ -57,7 +57,7 @@ brew install mysql
 
 ==
 
-**Create the database**
+###Create the database
 
 ==
 
@@ -83,7 +83,7 @@ Because we do not have scaffolding or generators in Chicago Boss, we have to man
 
 ==
 
-**Create the cb_sakila app**
+###Create the cb_sakila app
 
 ==
 
@@ -94,7 +94,7 @@ cd ../blog
 
 ==
 
-**Starting the development server**
+###Starting the development server
 
 ==
 
@@ -112,7 +112,7 @@ ctrl + c
 
 ==
 
-**Pointing the app to the database**
+###Pointing the app to the database
 
 ==
 
@@ -129,7 +129,7 @@ Edit the boss.config under the Database header:
 
 ==
 
-**Create the Models**
+###Create the Models
 
 ==
 
@@ -145,7 +145,7 @@ Ok we are going to create all of the models that we will need in this section.
 
 Anyway lets get to it.
 
-*Create the model for actors:*
+**Create the model for actors:**
 
 >touch src/model/actor.erl
 
@@ -156,7 +156,7 @@ Now edit: src/model/actor.erl
 -compile(export_all).
 ```
 
-*Create the model for addresses:*
+**Create the model for addresses:**
 
 >touch src/model/address.erl
 
@@ -171,7 +171,7 @@ Now edit: src/model/address.erl
 -has({stores, many}).
 ```
 
-*Create the model for categories:*
+**Create the model for categories:**
 
 >touch src/model/category.erl
 
@@ -182,7 +182,7 @@ Now edit: src/model/category.erl
 -compile(export_all).
 ```
 
-*Create the model for cities:*
+**Create the model for cities:**
 
 >touch src/model/city.erl
 
@@ -195,7 +195,7 @@ Now edit: src/model/city.erl
 -has({addresses, many}).
 ```
 
-*Create the model for countries:*
+**Create the model for countries:**
 
 >touch src/model/country.erl
 
@@ -207,7 +207,7 @@ Now edit: src/model/country.erl
 -has({cities, many}).
 ```
 
-*Create the model for customers:*
+**Create the model for customers:**
 
 >touch src/model/customer.erl
 
@@ -222,7 +222,7 @@ Now edit: src/model/customer.erl
 -has({rentals, many}).
 ```
 
-*Create the model for films:*
+**Create the model for films:**
 
 >touch src/model/film.erl
 
@@ -235,7 +235,7 @@ Now edit: src/model/film.erl
 -has({inventories, many}).
 ```
 
-*Create the model for filmtexts:*
+**Create the model for filmtexts:**
 
 >touch src/model/filmtext.erl
 
@@ -246,7 +246,7 @@ Now edit: src/model/filmtext.erl
 -compile(export_all).
 ```
 
-*Create the model for inventories:*
+**Create the model for inventories:**
 
 >touch src/model/inventory.erl
 
@@ -260,7 +260,7 @@ Now edit: src/model/inventory.erl
 -has({rentals, many}).
 ```
 
-*Create the model for languages:*
+**Create the model for languages:**
 
 >touch src/model/language.erl
 
@@ -272,7 +272,7 @@ Now edit: src/model/language.erl
 -has({films, many}).
 ```
 
-*Create the model for payments:*
+**Create the model for payments:**
 
 >touch src/model/payment.erl
 
@@ -286,7 +286,7 @@ Now edit: src/model/payment.erl
 -belongs_to(rental).
 ```
 
-*Create the model for rentals:*
+**Create the model for rentals:**
 
 >touch src/model/rental.erl
 
@@ -301,7 +301,7 @@ Now edit: src/model/rental.erl
 -has({payments, many}).
 ```
 
-*Create the model for staffs:*
+**Create the model for staffs:**
 
 >touch src/model/staff.erl
 
@@ -316,7 +316,7 @@ Now edit: src/model/staff.erl
 -has({rentals, many}).
 ```
 
-*Create the model for stores:*
+**Create the model for stores:**
 
 >touch src/model/store.erl
 
@@ -333,7 +333,7 @@ Now edit: src/model/store.erl
 
 ==
 
-**Create the controllers**
+###Create the controllers
 
 ==
 
@@ -344,7 +344,7 @@ Things to note about controllers:
 * The -compile(export_all) line still has the same purpose.
 * Each action corrosponds to a template in the views folder, this is achieved through using the same name for the method as the html file.
 
-*Create the controller for actors:*
+**Create the controller for actors:**
 
 >touch src/controller/cb_sakila_actors_controller.erl
 
@@ -381,11 +381,19 @@ update('POST', [ActorId]) ->
     {redirect, [{action, "index"}]}.
 ```
 
-<fill in the rest of the controllers>
+**Create the controller for addresses:**
+
+>touch src/controller/cb_sakila_addresses_controller.erl
+
+Now edit: src/controller/cb_sakila_addresses_controller.erl
+
+```
+
+```
 
 ==
 
-**Create the views**
+###Create the views
 
 ==
 
@@ -431,10 +439,10 @@ touch src/view/stores/index.html show.html update.html create.html
 
 Now we can start editing these files:
 
-**Actors**
-
+###Actors
 ==
-*Edit: src/view/actors/index.html*
+
+**Edit: src/view/actors/index.html**
 
 ```
 <html>
@@ -470,7 +478,7 @@ Now we can start editing these files:
 </html>
 ```
 
-*Edit: src/view/actors/create.html*
+**Edit: src/view/actors/create.html**
 
 ```
 <h1>Create a new Actor</h1>
@@ -498,7 +506,7 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-*Edit: src/view/actors/show.html*
+**Edit: src/view/actors/show.html**
 
 ```
 <p>
@@ -518,7 +526,7 @@ Now we can start editing these files:
 <a href="{% url action="index" %}">Back</a>
 ```
 
-*Edit: src/view/actors/update.html*
+**Edit: src/view/actors/update.html**
 
 ```
 <h1>Editing actor</h1>
@@ -542,35 +550,34 @@ Now we can start editing these files:
 
 ==
 
-**Addresses**
-
-==
-*Edit: src/view/addresses/index.html*
-
-```
-
-```
-
-*Edit: src/view/addresses/create.html*
-
-```
-
-```
-
-*Edit: src/view/addresses/show.html*
-
-```
-
-```
-
-*Edit: src/view/addresses/update.html*
-
-```
-
-```
-
+###Addresses
 ==
 
+**Edit: src/view/addresses/index.html**
+
+```
+
+```
+
+**Edit: src/view/addresses/create.html**
+
+```
+
+```
+
+**Edit: src/view/addresses/show.html**
+
+```
+
+```
+
+**Edit: src/view/addresses/update.html**
+
+```
+
+```
+
+==
 
 
 
@@ -584,16 +591,17 @@ Now we can start editing these files:
 
 
 
-**Create the home controller and index view**
+
+###Create the home controller and index views
 
 
 
 
-**Set the root route**
+###Set the root route
 
 
 
-**The End**
+###The End
 
 
 
