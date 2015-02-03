@@ -34,8 +34,7 @@ make
 
 **Working with the existing database**
 
-Firstly I am creating this application with the sakila_dump.sql file, which you can get from here: . Its included in the source for this repository.
-
+Firstly I am creating this application with the sakila_dump.sql file, which you can get from here: https://github.com/archerydwd/cb_sakila/blob/master/sakila_dump.sql. Its included in the source for this repository.
 
 **Install mysql**
 
@@ -90,6 +89,9 @@ To stop the development server:
 ```
 ctrl + c
 ```
+
+**Pointing the app to the database**
+
 
 
 
