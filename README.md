@@ -438,9 +438,9 @@ touch src/view/stores/index.html show.html update.html create.html
 ```
 
 Now we can start editing these files:
-
+=
 ###Actors
-==
+=
 
 **Edit: src/view/actors/index.html**
 
