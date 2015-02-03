@@ -32,6 +32,37 @@ cd ChicagoBoss
 make
 ```
 
+**Install mysql**
+
+We are going to be using mysql for this database. If you don't have it, please install it:
+
+Using HomeBrew:
+
+```
+brew update
+brew doctor
+brew upgrade
+brew install mysql
+```
+
+**Create the database**
+
+To create the database, we need to login and enter a few commands. Please note, if this is your first time using mysql, the first time you login and enter a password, this acts as setting a password. If you don't want to set a password (bad idea) just hit enter when it requests the password.
+
+```
+mysql -u root -p
+create database cb_sakila
+use database cb_sakila
+
+source PATH/TO/sakila_dump.sql
+```
+
+Then to check that this has indeed worked, you can enter the following command and you should see a list of the tables in the database:
+
+```
+show tables;
+```
+
 ###Building the application
 
 **Create the cb_sakila app**
