@@ -1,7 +1,7 @@
 # Chicago Boss cb_sakila Application
 
 I built this app with the Chicago Boss framework to be used as part of a series of applications that I will be 
-performing tests on. This is a Chicago Boss version of the Ruby on Rails ror_sakila application: <insert>.
+performing tests on. This is a Chicago Boss version of the Ruby on Rails ror_sakila application: https://github.com/archerydwd/ror_sakila.
 
 I am going to be performing tests on this app using some load testing tools such as Tsung, J-Meter and Basho bench. 
 
