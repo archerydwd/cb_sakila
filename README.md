@@ -380,6 +380,171 @@ Next we need to create 4 files for each directory, a index, create, show and upd
 
 ```
 touch src/view/actors/index.html show.html update.html create.html
+touch src/view/addresses/index.html show.html update.html create.html
+touch src/view/categories/index.html show.html update.html create.html
+touch src/view/cities/index.html show.html update.html create.html
+touch src/view/countries/index.html show.html update.html create.html
+touch src/view/customers/index.html show.html update.html create.html
+touch src/view/films/index.html show.html update.html create.html
+touch src/view/filmtexts/index.html show.html update.html create.html
+touch src/view/inventories/index.html show.html update.html create.html
+touch src/view/languages/index.html show.html update.html create.html
+touch src/view/payments/index.html show.html update.html create.html
+touch src/view/rentals/index.html show.html update.html create.html
+touch src/view/staffs/index.html show.html update.html create.html
+touch src/view/stores/index.html show.html update.html create.html
+```
+
+Now we can start editing these files:
+
+**Actors**
+==
+*Edit: src/view/actors/index.html*
+
+```
+<html>
+  <head>
+  </head>
+  <body>
+      <h1>Listing actors</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Last Update</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for actor in actors %}
+            <tr>
+              <td>{{ actor.first_name }}</td>
+              <td>{{ actor.last_name }}</td>
+              <td>{{ actor.last_update|date:"Y-m-d" }} {{ actor.last_update|time:"H:i:s" }} UTC</td>
+              <td><a href="/actors/show/{{ actor.id }}">Show</a></td>
+              <td><a href="/actors/update/{{ actor.id }}">Edit</a></td>
+              <td><a href="/actors/delete/{{ actor.id }}">Destroy</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <br>
+      <a href="{% url action="create" %}">New Actor</a>
+  </body>
+</html>
+```
+
+*Edit: src/view/actors/create.html*
+
+```
+<h1>Create a new Actor</h1>
+  {% if errors %}
+    <ol>
+      {% for error in errors %}
+        <li><font color=red>{{ error }}</font>
+      {% endfor %}
+    </ol>
+  {% endif %}
+
+  <form method="post">
+    <p>
+      First Name:<br>
+      <input name="first_name" value="{{ actor.first_name|default_if_none:'' }}"/>
+    </p>
+    <p>
+      Last Name:<br>
+      <input name="last_name" value="{{ actor.last_name|default_if_none:'' }}"/>
+    </p>
+    <p>
+      <input type="submit" value="Create Actor"/>
+    </p>
+  </form>
+  <a href="{% url action="index" %}">Back</a>
+```
+
+*Edit: src/view/actors/show.html*
+
+```
+<p>
+    <strong>First Name:</strong>
+    {{ actor.first_name }}
+</p>
+<p>
+    <strong>Last Name</strong>
+    {{ actor.last_name }}
+</p>
+<p>
+    <strong>Last update:</strong>
+    {{ actor.last_update|date:"Y-m-d" }} {{ actor.last_update|time:"H:i:s" }} UTC
+</p>
+
+<a href="/actors/update/{{ actor.id }}">Edit</a> |
+<a href="{% url action="index" %}">Back</a>
+```
+
+*Edit: src/view/actors/update.html*
+
+```
+<h1>Editing actor</h1>
+<form method="post">
+    <p>
+      First name<br>
+      <input name="first_name" value="{{ actor.first_name }}"/>
+    </p>
+    <p>
+      Last name<br>
+      <input name="last_name" value="{{ actor.last_name }}"/>
+    </p>
+    <p>
+      <input type="submit" value="Update Actor"/>
+    </p>
+</form>
+
+<a href="/actors/show/{{ actor.id }}">Show</a> |
+<a href="{% url action="index" %}">Back</a>
+```
+
+==
+
+**Addresses**
+==
+*Edit: src/view/addresses/index.html*
+
+```
+
+```
+
+*Edit: src/view/addresses/create.html*
+
+```
+
+```
+
+*Edit: src/view/addresses/show.html*
+
+```
+
+```
+
+*Edit: src/view/addresses/update.html*
+
+```
+
+```
+
+==
+
+
+
+
+
+
+
+
+
+
+
 
 
 
