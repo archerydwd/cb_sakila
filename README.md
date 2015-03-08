@@ -2818,6 +2818,30 @@ We also need to set the root to point to home/index, edit: priv/cb_sakila.routes
 We can now navigate to: http://localhost:8001/ and we should see the index file.
 
 ==
+###Getting Production Ready
+==
+
+First we need to compile the project and then we need to start it in production mode.
+
+**Compile the application**
+
+To compile the app, change directory to the app and run the following command:
+
+```
+./rebar compile
+```
+
+This should produce a .beam file in the directory ebin/
+
+**Start in production mode**
+
+To run in production mode, use the following command:
+
+```
+./init.sh start
+```
+
+==
 ###The End
 ==
 
