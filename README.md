@@ -22,7 +22,7 @@ brew install erlang
 **Installing Erlang on Linux:**
 ```
 sudo apt-get update
-sudo apt-get erlang
+sudo apt-get install erlang
 ```
 **Install Chicago Boss:**
 
