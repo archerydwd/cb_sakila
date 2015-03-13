@@ -31,6 +31,7 @@ sudo apt-get install erlang
 *Compile it*
 ```
 cd ChicagoBoss
+git checkout tags/v0.8.14
 make
 ```
 
