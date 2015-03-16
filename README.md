@@ -36,6 +36,14 @@ cd ChicagoBoss
 make
 ```
 
+If you get an when doing the make command, about uuid then do the following:
+
+>vim deps/boss_db/rebar.config
+
+Find the line that contains git://gitorious.org/avtobiff/erlang-uuid.git and change it to https://gitorious.org/avtobiff/erlang-uuid.git
+
+Now re-run the make command.
+
 ==
 
 ###Working with the existing database
