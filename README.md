@@ -73,7 +73,7 @@ brew install mysql
 
 ==
 
-To create the database, we need to login and enter a few commands. Please note, if this is your first time using mysql, the first time you login and enter a password, this acts as setting a password. If you don't want to set a password (bad idea) just hit enter when it requests the password.
+To create the database, we need to login and enter a few commands. Please note, if this is your first time using mysql, the first time you login and enter a password, this acts as setting a password. If you don't want to set a password (bad idea) just hit enter when it requests the password. I am going to use 'password' as mine for this app.
 
 ```
 mysql -u root -p
@@ -135,7 +135,7 @@ Edit the boss.config under the Database header:
 % {db_port, 1978},
 {db_adapter, mysql},
 {db_username, "root"},
-{db_password, "secret"},
+{db_password, "password"},
 {db_database, "cb_sakila"},
 ```
 
