@@ -11,6 +11,7 @@ Once I have tested this application and the other verisons of it, I will publish
 
 You can build this app using a framework of your choosing and then follow the testing mechanisms that I will describe and then compare the results against my benchmark to get an indication of performance levels of your chosen framework.
 
+=
 ###Installing Erlang and Chicago Boss
 
 At the time of writing Erlang was at version: 17.4 and Chicago Boss at version: 0.8.12
@@ -44,17 +45,12 @@ Find the line that contains git://gitorious.org/avtobiff/erlang-uuid.git and cha
 
 Now re-run the make command.
 
-==
-
+=
 ###Working with the existing database
-
-==
 
 Firstly I am creating this application with the sakila_dump.sql file, which you can get from here: https://github.com/archerydwd/cb_sakila/blob/master/sakila_dump.sql. Its included in the source for this repository.
 
-
 **Install mysql**
-
 
 We are going to be using mysql for this database. If you don't have it, please install it:
 
@@ -87,11 +83,8 @@ start the server on linux:
 sudo etc/init.d/apache2 start
 ```
 
-==
-
+=
 ###Create the database
-
-==
 
 To create the database, we need to login and enter a few commands. Please note, if this is your first time using mysql, the first time you login and enter a password, this acts as setting a password. If you don't want to set a password (bad idea) just hit enter when it requests the password. I am going to use 'password' as mine for this app.
 
@@ -109,26 +102,21 @@ Then to check that this has indeed worked, you can enter the following command a
 show tables;
 ```
 
+=
 ###Building the application
 
 Because we do not have scaffolding or generators in Chicago Boss, we have to manually enter all the details from the database ourselves in order to create the app. So here goes..
 
-==
-
+=
 ###Create the cb_sakila app
-
-==
 
 ```
 make app PROJECT=cb_sakila
 cd ../blog
 ```
 
-==
-
+=
 ###Starting the development server
-
-==
 
 To start the dev server:
 
@@ -142,11 +130,8 @@ To stop the development server:
 ctrl + c
 ```
 
-==
-
+=
 ###Pointing the app to the database
-
-==
 
 Edit the boss.config under the Database header:
 
@@ -159,11 +144,8 @@ Edit the boss.config under the Database header:
 {db_database, "cb_sakila"},
 ```
 
-==
-
+=
 ###Create the Models
-
-==
 
 Ok we are going to create all of the models that we will need in this section. 
 * First thing to note is that the name of the file should not be plural, eg: the model for actors should be actor.erl.
@@ -363,11 +345,8 @@ Now edit: src/model/store.erl
 -has({staffs, many}).
 ```
 
-==
-
+=
 ###Create the controllers
-
-==
 
 Things to note about controllers:
 * The name of the controller takes the form: APPLICATIONNAME_MODELNAME_CONTROLLER.ERL
@@ -894,11 +873,8 @@ update('POST', [StoreId]) ->
       {redirect, [{action, "index"}]}.
 ```
 
-==
-
+=
 ###Create the views
-
-==
 
 For the views, we use html and Django's templating language.
 
@@ -941,9 +917,9 @@ touch src/view/stores/index.html show.html update.html create.html
 ```
 
 Now we can start editing these files:
+
 =
 ###Actors
-=
 
 **Edit: src/view/actors/index.html**
 
@@ -1051,10 +1027,8 @@ Now we can start editing these files:
 <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Addresses
-==
 
 **Edit: src/view/addresses/index.html**
 
@@ -1203,10 +1177,8 @@ Now we can start editing these files:
 <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Categories
-==
 
 **Edit: src/view/categories/index.html**
 
@@ -1299,10 +1271,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Cities
-==
 
 **Edit: src/view/cities/index.html**
 
@@ -1409,10 +1379,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Countries
-==
 
 **Edit: src/view/countries/index.html**
 
@@ -1505,10 +1473,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Customers
-==
 
 **Edit: src/view/customers/index.html**
 
@@ -1677,10 +1643,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Films
-==
 
 **Edit: src/view/films/index.html**
 
@@ -1898,10 +1862,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Filmtexts
-==
 
 **Edit: src/view/filmtexts/index.html**
 
@@ -2002,10 +1964,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Inventories
-==
 
 **Edit: src/view/inventories/index.html**
 
@@ -2112,10 +2072,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Languages
-==
 
 **Edit: src/view/languages/index.html**
 
@@ -2208,10 +2166,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Payments
-==
 
 **Edit: src/view/payments/index.html**
 
@@ -2353,10 +2309,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Rentals
-==
 
 **Edit: src/view/rentals/index.html**
 
@@ -2489,10 +2443,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Staffs
-==
 
 **Edit: src/view/staffs/index.html**
 
@@ -2683,10 +2635,8 @@ Now we can start editing these files:
 <a href="{% url action="index" %}">Back</a>
 ```
 
-==
-
+=
 ###Stores
-==
 
 **Edit: src/view/stores/index.html**
 
@@ -2779,9 +2729,8 @@ Now we can start editing these files:
   <a href="{% url action="index" %}">Back</a>
 ```
 
-==
+=
 ###Create the home controller and index views
-==
 
 Now we need to create a page that links all the above together.
 
@@ -2834,9 +2783,8 @@ Then edit it:
 
 You can now go to: http://localhost:8001/home/index and you should see the above. 
 
-==
+=
 ###Set the root route
-==
 
 We also need to set the root to point to home/index, edit: priv/cb_sakila.routes and add the following:
 
@@ -2847,9 +2795,8 @@ We also need to set the root to point to home/index, edit: priv/cb_sakila.routes
 
 We can now navigate to: http://localhost:8001/ and we should see the index file.
 
-==
+=
 ###Getting Production Ready
-==
 
 First we need to compile the project and then we need to start it in production mode.
 
@@ -2871,22 +2818,9 @@ To run in production mode, use the following command:
 ./init.sh start
 ```
 
-==
+=
 ###The End
-==
 
 Thanks for reading, hope you learned something :)
 
 Darren.
-
-
-
-
-
-
-
-
-
-
-
-
