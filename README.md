@@ -58,13 +58,33 @@ Firstly I am creating this application with the sakila_dump.sql file, which you 
 
 We are going to be using mysql for this database. If you don't have it, please install it:
 
-Using HomeBrew:
+Using HomeBrew on OSX :
 
 ```
 brew update
 brew doctor
 brew upgrade
 brew install mysql
+```
+
+Using apt-get on Ubuntu:
+
+```
+sudo apt-get install mysql-server
+```
+
+Enter a password when prompted, I will use 'password' for the purposes of these instructions.
+
+start the server on osx:
+
+```
+mysql.server start
+```
+
+start the server on linux:
+
+```
+sudo etc/init.d/apache2 start
 ```
 
 ==
@@ -132,7 +152,7 @@ Edit the boss.config under the Database header:
 
 ```
 {db_host, "localhost"},
-% {db_port, 1978},
+% {db_port, 1978}, //don't uncomment this line!!
 {db_adapter, mysql},
 {db_username, "root"},
 {db_password, "password"},
