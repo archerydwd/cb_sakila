@@ -1,15 +1,18 @@
 # Chicago Boss cb_sakila Application
 
-Please note this is not a tutorial, I have wrote it in that style so you can follow along. If you get into trouble (like I did) try the mailing list or just google it. You will find that you will actually learn more from researching it and getting into tight spots. ;) 
+This is a tutorial for building a Chicago Boss sakila application. If you get into trouble (like I did) try the mailing list or google it. For all the problems that I had, I have noted below the fixes I used.
 
 I built this app with the Chicago Boss framework to be used as part of a series of applications that I will be 
-performing tests on. This is a Chicago Boss version of the Ruby on Rails ror_sakila application: https://github.com/archerydwd/ror_sakila & the Flask version is here: https://github.com/archerydwd/flask_sakila
+performing benchmarking tests on.
+See my Ruby on Rails version of this application here: https://github.com/archerydwd/ror_sakila
+The Flask version is here: https://github.com/archerydwd/flask_sakila
 
 I am going to be performing tests on this app using some load testing tools such as Gatling & Tsung. 
 
-Once I have tested this application and the other verisons of it, I will publish the results, which can then be used as a benchmark for others when trying to choose a framework.
+Once I have tested this application and the other verisons of it, I will publish the results, which can then be used as a benchmark for others when choosing a framework.
 
-You can build this app using a framework of your choosing and then follow the testing mechanisms that I will describe and then compare the results against my benchmark to get an indication of performance levels of your chosen framework.
+You can build this app using a framework of your choosing and then follow the testing mechanisms that I have described here: https://github.com/archerydwd/gatling-tests
+Then compare your results against my benchmarks to get an indication of performance levels for your chosen framework.
 
 =
 ###Installing Erlang and Chicago Boss
@@ -32,29 +35,31 @@ sudo apt-get install erlang
 >Download the latest release from the Chicago Boss site: http://www.chicagoboss.org
 
 *Compile it*
+
 ```
 cd ChicagoBoss
 make
 ```
 
-If you get an when doing the make command, about uuid then do the following:
+If you get an error when doing the make command, about uuid then do the following:
 
 >vim deps/boss_db/rebar.config
 
 Find the line that contains git://gitorious.org/avtobiff/erlang-uuid.git and change it to https://gitorious.org/avtobiff/erlang-uuid.git
 
-Now re-run the make command.
+Now run the make command again.
 
 =
 ###Working with the existing database
 
 Firstly I am creating this application with the sakila_dump.sql file, which you can get from here: https://github.com/archerydwd/cb_sakila/blob/master/sakila_dump.sql. Its included in the source for this repository.
 
-**Install mysql**
+=
+###Install mysql
 
 We are going to be using mysql for this database. If you don't have it, please install it:
 
-Using HomeBrew on OSX :
+**Using HomeBrew on OSX:**
 
 ```
 brew update
@@ -63,21 +68,24 @@ brew upgrade
 brew install mysql
 ```
 
-Using apt-get on Ubuntu:
+**Using apt-get on Ubuntu:**
 
 ```
 sudo apt-get install mysql-server
 ```
 
+=
+###Start the MySQL server
+
 Enter a password when prompted, I will use 'password' for the purposes of these instructions.
 
-start the server on osx:
+**start the server on osx:**
 
 ```
 mysql.server start
 ```
 
-start the server on linux:
+**start the server on linux:**
 
 ```
 sudo etc/init.d/apache2 start
@@ -2821,6 +2829,6 @@ To run in production mode, use the following command:
 =
 ###The End
 
-Thanks for reading, hope you learned something :)
+Thanks for reading.
 
 Darren.
